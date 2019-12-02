@@ -179,8 +179,34 @@ input {
 .viewMessage {
     width: 100%;
     height: calc(100% - 132px);
-    background-image: url(https://web.whatsapp.com/img/bg-chat-tile_9e8a2898faedb7db9bf5638405cf81ae.png);
-    opacity: 0.1;
+    padding: 0 50px;
+    /* background-image: url(https://web.whatsapp.com/img/bg-chat-tile_9e8a2898faedb7db9bf5638405cf81ae.png);
+    position: relative; */
+}
+
+/* .overlay {
+    width: 100%;
+    height: calc(100% - 132px);
+    background-color: rgba(250, 250, 244, 0.1);
+    position:relative;
+    top: 0;
+    right: 0;
+} */
+
+.message {
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.received {
+    background-color: #fff;
+    float: left;
+}
+
+.sent {
+    opacity: 1;
+    background-color: #59b997;
+    float: right;
 }
 
 .sendBar {
