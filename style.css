@@ -182,6 +182,8 @@ input {
     padding: 0 50px;
     /* background-image: url(https://web.whatsapp.com/img/bg-chat-tile_9e8a2898faedb7db9bf5638405cf81ae.png);
     position: relative; */
+    display: flex;
+    flex-direction: column;
 }
 
 /* .overlay {
@@ -194,19 +196,27 @@ input {
 } */
 
 .message {
-    padding: 15px;
+    width: max-content;
+    padding: 22px;
     border-radius: 10px;
+    margin: 10px 0;
+}
+
+.message small {
+    position: relative;
+    top: 15px;
+    left: 15px;
 }
 
 .received {
     background-color: #fff;
-    float: left;
+    align-items: flex-start;
 }
 
 .sent {
     opacity: 1;
-    background-color: #59b997;
-    float: right;
+    background-color: #bef896;
+    align-items: flex-end;
 }
 
 .sendBar {
