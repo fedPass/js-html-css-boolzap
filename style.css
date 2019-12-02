@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    color: grey;
 }
 
 /*-----background-----*/
@@ -33,7 +34,7 @@ body {
     right: calc((100% - 1400px) / 2);
 }
 
-/*-----elementi comuni-----*/
+/*-----elementi comuni header-----*/
 
 .header {
    align-items: flex-start;
@@ -99,6 +100,48 @@ body {
     left: 30px;
 }
 
+.contactList {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactPreview {
+    display: flex;
+    align-items: center;
+    height: 72px;
+    width: 100%;
+}
+
+.contactPreview img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px 15px;
+}
+
+.messagePreview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgrey;
+    width: 100%;
+    margin-right: 10px;
+}
+
+.sendingTime {
+    margin-right: 15px;
+    font-size: 13px;
+}
+
+/* .sendingTime::after {
+    content: '';
+    width: 300px;
+    height: 1px;
+    background-color: lightgrey;
+    display: inline-block;
+    position: absolute;
+} */
+
 /*-----messageContainer-----*/
 
 #messageContainer {
@@ -113,18 +156,18 @@ body {
     align-items: center;
 }
 
-.accessInfo {
+.accountInfo {
     display: flex;
     flex-direction: column;
     margin-left: 15px;
 }
 
-#name {
+.name {
     font-size: 16px;
     font-weight: bold;
     padding-bottom: 3px;
 }
 
-#lastAccess {
+.otherInfo {
     font-size: 13px;
 }
