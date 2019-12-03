@@ -27,7 +27,7 @@ $(document).ready(function(){
     });
 
     // scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite
-    $('#searchBar i').click(function(){
+    $('#searchBar input').keypress(function(){
         var nomeRicercato = $('#searchBar input').val();
         console.log(nomeRicercato);
         if (nomeRicercato.length > 0) {
