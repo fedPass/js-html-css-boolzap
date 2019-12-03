@@ -35,16 +35,18 @@ $(document).ready(function(){
             $('.messagePreview .name').each(function(){
                 //mettilo in una variabile
                 var nomeContatto = $(this).text();
+                //controlla le lettere inserite
                 for (var i = 0; i < nomeRicercato.length; i++) {
+                    //se sono diverse
                     if (nomeContatto[i].toUpperCase() != nomeRicercato[i].toUpperCase()) {
-                        //così mi nasconde solo lo span
-                        $(this).hide();
+                        //nascondi intero div contactPreview
+                        $(this).parentsUntil('.contactList').hide();
                     }
                 }
             });
         } else {
             //se l'input è vuoto mostrameli tutti
-            $('messagePreview').show();
+            $('.contactPreview').show();
         }
     });
 });
