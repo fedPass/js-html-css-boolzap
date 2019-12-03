@@ -3,9 +3,6 @@ $(document).ready(function(){
     // for (var i = 0; i < 5; i++) {
     //     $('.contactPreview').clone().appendTo('.contactList');
     // }
-    $('#messageInput').click(function(){
-        $('#messageInput').val('');
-    })
 
     $('#sendMess').click(function(){
         var messaggio = $('#messageInput').val();
