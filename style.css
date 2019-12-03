@@ -233,3 +233,14 @@ input {
     padding: 10px;
     color: #818080;
 }
+
+/*-----template-----*/
+
+.template {
+    display: none;
+}
+
+.message i {
+    float: right;
+    margin-left: 10px;
+}
