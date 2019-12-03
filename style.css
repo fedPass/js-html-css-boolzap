@@ -107,6 +107,8 @@ input {
 .contactList {
     display: flex;
     flex-direction: column;
+    height: calc(100% - 110px);
+    overflow-y: scroll;
 }
 
 .contactPreview {
@@ -114,6 +116,10 @@ input {
     align-items: center;
     height: 72px;
     width: 100%;
+}
+
+.contactPreview:hover {
+    background-color: #ddd;
 }
 
 .contactPreview img {
@@ -139,7 +145,7 @@ input {
 
 .messagePreview::after {
     content: '';
-    width: 325px;
+    width: 315px;
     height: 1px;
     background-color: lightgrey;
     display: inline-block;
@@ -180,10 +186,9 @@ input {
     width: 100%;
     height: calc(100% - 132px);
     padding: 0 50px;
+    overflow-y: scroll;
     /* background-image: url(https://web.whatsapp.com/img/bg-chat-tile_9e8a2898faedb7db9bf5638405cf81ae.png);
     position: relative; */
-    display: flex;
-    flex-direction: column;
 }
 
 /* .overlay {
@@ -210,13 +215,15 @@ input {
 
 .received {
     background-color: #fff;
-    align-items: flex-start;
+    float: left;
+    clear: both;
 }
 
 .sent {
     opacity: 1;
     background-color: #bef896;
-    align-items: flex-end;
+    float: right;
+    clear: both;
 }
 
 .sendBar {
