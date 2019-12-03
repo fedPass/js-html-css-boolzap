@@ -2,11 +2,15 @@ $(document).ready(function(){
     //intercetto il click sull'input su icona invio
     $('.sendBar i:last-of-type').click(function(){
         sendMessage()
+        // un “ok” come risposta, che apparirà dopo 1 secondo.
+        setTimeout(sendAnswer, 1000);
     });
     //intercetto l'INVIO del messaggio
     $('.sendBar').keypress(function(event){
         if (event.which == 13) {
             sendMessage()
+            // un “ok” come risposta, che apparirà dopo 1 secondo.
+            setTimeout(sendAnswer, 1000);
         }
     });
     //quando sto digitando cambia l'icona
@@ -22,6 +26,17 @@ $(document).ready(function(){
         }
     });
 
+
+    function sendAnswer() {
+        //devo clonare il template
+        var newMessage = $('.template .message').clone();
+        //inserire il nuovomessaggio nel template messagio
+        newMessage.children('.message-text').text('ok!');
+        //aggiungere la classe sent al messaggio
+        newMessage.addClass('received');
+        //aggiungere per visualizzare il messaggio nel containerMessaggi
+        $('.viewMessage').append(newMessage);
+    }
 
 
     function sendMessage() {
