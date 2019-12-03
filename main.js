@@ -26,6 +26,13 @@ $(document).ready(function(){
         }
     });
 
+    // scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite
+    $('#searchBar i').click(function(){
+        var nomeRicercato = $('#searchBar input').val();
+        console.log(nomeRicercato);
+    });
+
+
 
     function sendAnswer() {
         //devo clonare il template
@@ -37,7 +44,6 @@ $(document).ready(function(){
         //aggiungere per visualizzare il messaggio nel containerMessaggi
         $('.viewMessage').append(newMessage);
     }
-
 
     function sendMessage() {
         //recupero il value inserito

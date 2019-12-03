@@ -97,6 +97,10 @@ input {
     align-items: center;
 }
 
+#searchBar i {
+    cursor: pointer;
+}
+
 #searchBar input {
     padding-left: 60px;
 }
