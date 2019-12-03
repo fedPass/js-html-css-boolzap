@@ -1,14 +1,21 @@
 $(document).ready(function(){
-
-    // for (var i = 0; i < 5; i++) {
-    //     $('.contactPreview').clone().appendTo('.contactList');
-    // }
-
+    //intercetto il click sull'input
     $('#sendMess').click(function(){
-        var messaggio = $('#messageInput').val();
-        console.log(messaggio);
-        $(messaggio).append('<div class="message sent"><span>' + messaggio + '</span><span>16:45</span></div>');
-        $('#messageInput').val('');
-    })
+        //recupero il value inserito
+        var textMessage = $('#messageInput').val();
+        console.log(textMessage);
+        //devo verificare se ha digitato qualcosa o no
+        if (textMessage.length != 0) {
+            //devo clonare il template
 
-})
+            //inserire il nuovomessaggio nel template messagio
+
+            //aggiungere la classe sent al messaggio
+
+            //aggiungere per visualizzare il messaggio nel containerMessaggi
+
+            //resetto il value dell'input
+            $('#messageInput').val('');
+        }
+    });
+});
