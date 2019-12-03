@@ -1,6 +1,10 @@
 $(document).ready(function(){
     //intercetto il click sull'input
     $('#sendMess').click(function(){
+        sendMessage()
+    });
+
+    function sendMessage() {
         //recupero il value inserito
         var textMessage = $('#messageInput').val();
         console.log(textMessage);
@@ -17,5 +21,5 @@ $(document).ready(function(){
             //resetto il value dell'input
             $('#messageInput').val('');
         }
-    });
+    }
 });
