@@ -1,14 +1,28 @@
 $(document).ready(function(){
     //intercetto il click sull'input su icona invio
-    $('#sendMess').click(function(){
+    $('.sendBar i:last-of-type').click(function(){
         sendMessage()
     });
     //intercetto l'INVIO del messaggio
-    $('.sendBar').keypress(function(){
+    $('.sendBar').keypress(function(event){
         if (event.which == 13) {
             sendMessage()
         }
     });
+    //quando sto digitando cambia l'icona
+    $('#messageInput').keypress(function(event){
+        var textMessage = $('#messageInput').val();
+        //se textMessage.length è maggiore di 0 rimuovi microfono e inserisci aeroplanino
+        if (textMessage.length != 0) {
+            $('.sendBar i:last-of-type').removeClass('fas fa-microphone').addClass('fa fa-paper-plane');
+        } else {
+            // altrimenti (è vuoto) rimuovi aeroplanino e inserisci microfono
+            console.log('perora è vuoto');
+            $('.sendBar i:last-of-type').addClass('fas fa-microphone').removeClass('fa fa-paper-plane');
+        }
+    });
+
+
 
     function sendMessage() {
         //recupero il value inserito
@@ -26,6 +40,7 @@ $(document).ready(function(){
             $('.viewMessage').append(newMessage);
             //resetto il value dell'input
             $('#messageInput').val('');
+            //reimposta icona microfono
         }
     }
 });

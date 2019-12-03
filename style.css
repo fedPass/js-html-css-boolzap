@@ -228,10 +228,11 @@ input {
     display: flex;
     align-items: center;
 }
-.sendBar a {
+.sendBar i {
     font-size: 25px;
     padding: 10px;
     color: #818080;
+    cursor: pointer;
 }
 
 /*-----template-----*/
