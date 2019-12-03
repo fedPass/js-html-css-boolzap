@@ -1,7 +1,13 @@
 $(document).ready(function(){
-    //intercetto il click sull'input
+    //intercetto il click sull'input su icona invio
     $('#sendMess').click(function(){
         sendMessage()
+    });
+    //intercetto l'INVIO del messaggio
+    $('.sendBar').keypress(function(){
+        if (event.which == 13) {
+            sendMessage()
+        }
     });
 
     function sendMessage() {
