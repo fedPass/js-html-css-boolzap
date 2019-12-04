@@ -62,12 +62,13 @@ $(document).ready(function(){
         var selectedContact = $('.chat').eq(indexContact);
         //rendo visibile la conversazione cliccata
         selectedContact.addClass('active');
-        // //cambia foto in header
+        //cambia foto in header
         // var photoSelected = $('.contactPreview img').eq(indexContact);
-        // $('#messageContainer img')
-        // //cambio nome in header
-        // var nomeSelected = $('.name').eq(indexContact);
-        // $('#messageContainer .name').text(nomeSelected);
+        // $('#messageContainer img')....(photoSelected);
+        //cambio nome in header
+        var nomeSelected = $('.contactPreview .name').eq(indexContact).text();
+        console.log(nomeSelected);
+        $('#messageContainer .name').text(nomeSelected);
     });
 });
 
