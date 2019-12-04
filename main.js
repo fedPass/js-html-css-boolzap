@@ -1,13 +1,16 @@
 $(document).ready(function(){
     //intercetto il click sull'input su icona invio
     $('.sendBar i:last-of-type').click(function(){
-        sendMessage()
-        // un “ok” come risposta, che apparirà dopo 1 secondo.
-        setTimeout(sendAnswer, 1000);
+        var nomeRicercato = $('#searchBar input').val();
+        if (nomeRicercato.length > 0) {
+            sendMessage()
+            // un “ok” come risposta, che apparirà dopo 1 secondo.
+            setTimeout(sendAnswer, 1000);
+        }
     });
     //intercetto l'INVIO del messaggio
     $('.sendBar').keypress(function(event){
-        if (event.which == 13) {
+        if (event.which == 13 && nomeRicercato.length > 0) {
             sendMessage()
             // un “ok” come risposta, che apparirà dopo 1 secondo.
             setTimeout(sendAnswer, 1000);
