@@ -19,7 +19,6 @@ $(document).ready(function(){
             $('.sendBar i:last-of-type').removeClass('fas fa-microphone').addClass('fa fa-paper-plane');
         } else {
             // altrimenti (è vuoto) rimuovi aeroplanino e inserisci microfono
-            console.log('perora è vuoto');
             $('.sendBar i:last-of-type').addClass('fas fa-microphone').removeClass('fa fa-paper-plane');
         }
     });
@@ -99,6 +98,8 @@ function sendMessage() {
         $('.chat.active').append(newMessage);
         //resetto il value dell'input
         $('#messageInput').val('');
+        //reimposto icona microfono
+        $('.sendBar i:last-of-type').addClass('fas fa-microphone').removeClass('fa fa-paper-plane');
         //funzione per impostare risposta dopo 1 sec
         setTimeout(sendAnswer, 1000);
     }
