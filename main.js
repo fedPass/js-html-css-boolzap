@@ -84,6 +84,11 @@ $(document).ready(function(){
             $(messageOptClicked).removeClass('active');
         }
     });
+
+    //quando clicco su elimina messaggio
+    $(document).on('click','.message-destroy', function(){
+        $(this).parentsUntil('.chat').hide();
+    });
 });
 
 function sendAnswer() {
