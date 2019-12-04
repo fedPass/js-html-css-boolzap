@@ -239,6 +239,14 @@ input {
     cursor: pointer;
 }
 
+.chat {
+    display: none;
+}
+
+.chat.active {
+    display: block;
+}
+
 /*-----template-----*/
 
 .template {

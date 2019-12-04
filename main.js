@@ -1,21 +1,16 @@
 $(document).ready(function(){
     //intercetto il click sull'input su icona invio
     $('.sendBar i:last-of-type').click(function(){
-        var nomeRicercato = $('#searchBar input').val();
-        if (nomeRicercato.length > 0) {
             sendMessage()
-            // un “ok” come risposta, che apparirà dopo 1 secondo.
-            setTimeout(sendAnswer, 1000);
-        }
     });
+
     //intercetto l'INVIO del messaggio
     $('.sendBar').keypress(function(event){
-        if (event.which == 13 && nomeRicercato.length > 0) {
+        if (event.which == 13) {
             sendMessage()
-            // un “ok” come risposta, che apparirà dopo 1 secondo.
-            setTimeout(sendAnswer, 1000);
         }
     });
+
     //quando sto digitando cambia l'icona
     $('#messageInput').keyup(function(event){
         var textMessage = $('#messageInput').val();
@@ -29,6 +24,7 @@ $(document).ready(function(){
         }
     });
 
+    //faccio la ricerca tra i contatti
     $('#searchBar input').keyup(function(){
         var nomeRicercato = $('#searchBar input').val();
         //se stai digitando qualcosa
@@ -54,7 +50,25 @@ $(document).ready(function(){
         }
     });
 
-
+    //mostra la conversazione del contatto cliccato
+    //intercetto il click
+    $('.contactPreview').click(function(){
+        //intercetto su quale index sto cliccando
+        var indexContact = $(this).index();
+        //nascondo la conversazione attualemnte visualizzata
+        var currentContact = $('.chat.active');
+        currentContact.removeClass('active');
+        //gli collego la conversazione con stesso index
+        var selectedContact = $('.chat').eq(indexContact);
+        //rendo visibile la conversazione cliccata
+        selectedContact.addClass('active');
+        // //cambia foto in header
+        // var photoSelected = $('.contactPreview img').eq(indexContact);
+        // $('#messageContainer img')
+        // //cambio nome in header
+        // var nomeSelected = $('.name').eq(indexContact);
+        // $('#messageContainer .name').text(nomeSelected);
+    });
 });
 
 function sendAnswer() {
@@ -65,7 +79,7 @@ function sendAnswer() {
     //aggiungere la classe sent al messaggio
     newMessage.addClass('received');
     //aggiungere per visualizzare il messaggio nel containerMessaggi
-    $('.viewMessage').append(newMessage);
+    $('.chat.active').append(newMessage);
 }
 
 function sendMessage() {
@@ -81,9 +95,10 @@ function sendMessage() {
         //aggiungere la classe sent al messaggio
         newMessage.addClass('sent');
         //aggiungere per visualizzare il messaggio nel containerMessaggi
-        $('.viewMessage').append(newMessage);
+        $('.chat.active').append(newMessage);
         //resetto il value dell'input
         $('#messageInput').val('');
-        //reimposta icona microfono
+        //funzione per impostare risposta dopo 1 sec
+        setTimeout(sendAnswer, 1000);
     }
 }
