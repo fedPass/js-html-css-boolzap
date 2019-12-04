@@ -63,8 +63,8 @@ $(document).ready(function(){
         //rendo visibile la conversazione cliccata
         selectedContact.addClass('active');
         //cambia foto in header
-        // var photoSelected = $('.contactPreview img').eq(indexContact);
-        // $('#messageContainer img')....(photoSelected);
+        var photoSelected = $('.contactPreview img').eq(indexContact).attr('src');
+        $('#messageContainer img').attr('src', photoSelected);
         //cambio nome in header
         var nomeSelected = $('.contactPreview .name').eq(indexContact).text();
         console.log(nomeSelected);
