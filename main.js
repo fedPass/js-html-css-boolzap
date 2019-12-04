@@ -29,22 +29,23 @@ $(document).ready(function(){
         }
     });
 
-    // scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite
-    $('#searchBar input').keypress(function(){
+    $('#searchBar input').keyup(function(){
         var nomeRicercato = $('#searchBar input').val();
-        console.log(nomeRicercato);
+        //se stai digitando qualcosa
         if (nomeRicercato.length > 0) {
-            //prendi ogni nome tra i contatti
-            $('.messagePreview .name').each(function(){
-                //mettilo in una variabile
-                var nomeContatto = $(this).text();
-                //controlla le lettere inserite
-                for (var i = 0; i < nomeRicercato.length; i++) {
-                    //se sono diverse
-                    if (nomeContatto[i].toUpperCase() != nomeRicercato[i].toUpperCase()) {
-                        //nascondi intero div contactPreview
-                        $(this).parentsUntil('.contactList').hide();
-                    }
+            //prendi ogni div contatti
+            $('.contactPreview').each(function(){
+                //estrai il valore del nome
+                var nomeContatto = $(this).find('.name').text();
+                nomeContatto = nomeContatto.toUpperCase();
+                nomeRicercato = nomeRicercato.toUpperCase();
+                //se quello che digito è contenuto nel nome contatto
+                if(nomeContatto.includes(nomeRicercato)) {
+                    //mostramelo
+                    $(this).show();
+                } else {
+                    //altrimenti nascondilo
+                    $(this).hide();
                 }
             });
         } else {
@@ -52,6 +53,8 @@ $(document).ready(function(){
             $('.contactPreview').show();
         }
     });
+
+
 });
 
 function sendAnswer() {
