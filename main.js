@@ -66,8 +66,23 @@ $(document).ready(function(){
         $('#messageContainer img').attr('src', photoSelected);
         //cambio nome in header
         var nomeSelected = $('.contactPreview .name').eq(indexContact).text();
-        console.log(nomeSelected);
         $('#messageContainer .name').text(nomeSelected);
+    });
+
+    //quando clicco sull'icona chevron-down si apre il menu opzioni
+    $(document).on('click','.message i.fa.fa-chevron-down', function(){
+        console.log("hai cliccato l'icona");
+
+        //prendi il message-options-panel che ho cliccato
+        var messageOptClicked = $(this).next();
+        //se non è visibile
+        if(messageOptClicked.is(':hidden')){
+            //mostralo
+            $(messageOptClicked).addClass('active');
+        } else {
+            //se è visibile e ho cliccato nascondilo
+            $(messageOptClicked).removeClass('active');
+        }
     });
 });
 

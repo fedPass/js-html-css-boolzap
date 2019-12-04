@@ -268,7 +268,12 @@ input {
 	background: white;
 	box-shadow: 0px 0px 40px -15px rgba(0,0,0,0.75);
     position: absolute;
+    display: none;
 
+}
+
+.message-options-panel.active {
+    display: block;
 }
 
 .message.sent .message-options-panel{
