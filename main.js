@@ -55,12 +55,15 @@ $(document).ready(function(){
         //intercetto su quale index sto cliccando
         var indexContact = $(this).index();
         //nascondo la conversazione attualemnte visualizzata
-        var currentContact = $('.chat.active');
-        currentContact.removeClass('active');
+        $('.chat.active').removeClass('active');
+        //rimuovo active anche al contatto evidenziato
+        $('.contactPreview.active').removeClass('active');
         //gli collego la conversazione con stesso index
         var selectedContact = $('.chat').eq(indexContact);
+        var selectedContPrew = $('.contactPreview').eq(indexContact);
         //rendo visibile la conversazione cliccata
         selectedContact.addClass('active');
+        selectedContPrew.addClass('active');
         //cambia foto in header
         var photoSelected = $('.contactPreview img').eq(indexContact).attr('src');
         $('#messageContainer img').attr('src', photoSelected);
