@@ -1,18 +1,30 @@
 $(document).ready(function(){
+
     //intercetto il click sull'input su icona invio
     $('.sendBar i:last-of-type').click(function(){
-            sendMessage()
+        //recupero il value inserito
+        var textMessage = $('#messageInput').val();
+        //devo verificare se ha digitato qualcosa o no
+        if (textMessage.length != 0) {
+            sendMessage(textMessage);
+        }
+        //sposta il contatto il cima nella lista contatti
+        $('.contactPreview.active').prependTo('.contactList');
     });
 
     //intercetto l'INVIO del messaggio
     $('.sendBar').keypress(function(event){
-        if (event.which == 13) {
-            sendMessage()
+        //recupero il value inserito
+        var textMessage = $('#messageInput').val();
+        //verifico se ha cliccato enter e se ha digitato qualcosa
+        if (event.which == 13 && textMessage.length != 0) {
+            sendMessage(textMessage);
         }
     });
 
     //quando sto digitando cambia l'icona
     $('#messageInput').keyup(function(event){
+        //recupero il value inserito
         var textMessage = $('#messageInput').val();
         //se textMessage.length è maggiore di 0 rimuovi microfono e inserisci aeroplanino
         if (textMessage.length != 0) {
@@ -74,8 +86,6 @@ $(document).ready(function(){
 
     //quando clicco sull'icona chevron-down si apre il menu opzioni
     $(document).on('click','.message i.fa.fa-chevron-down', function(){
-        console.log("hai cliccato l'icona");
-
         //prendi il message-options-panel che ho cliccato
         var messageOptClicked = $(this).next();
         //se non è visibile
@@ -105,25 +115,19 @@ function sendAnswer() {
     $('.chat.active').append(newMessage);
 }
 
-function sendMessage() {
-    //recupero il value inserito
-    var textMessage = $('#messageInput').val();
-    console.log(textMessage);
-    //devo verificare se ha digitato qualcosa o no
-    if (textMessage.length != 0) {
-        //devo clonare il template
-        var newMessage = $('.template .message').clone();
-        //inserire il nuovomessaggio nel template messagio
-        newMessage.children('.message-text').text(textMessage);
-        //aggiungere la classe sent al messaggio
-        newMessage.addClass('sent');
-        //aggiungere per visualizzare il messaggio nel containerMessaggi
-        $('.chat.active').append(newMessage);
-        //resetto il value dell'input
-        $('#messageInput').val('');
-        //reimposto icona microfono
-        $('.sendBar i:last-of-type').addClass('fas fa-microphone').removeClass('fa fa-paper-plane');
-        //funzione per impostare risposta dopo 1 sec
-        setTimeout(sendAnswer, 1000);
-    }
+function sendMessage(textMessage) {
+    //devo clonare il template
+    var newMessage = $('.template .message').clone();
+    //inserire il nuovomessaggio nel template messagio
+    newMessage.children('.message-text').text(textMessage);
+    //aggiungere la classe sent al messaggio
+    newMessage.addClass('sent');
+    //aggiungere per visualizzare il messaggio nel containerMessaggi
+    $('.chat.active').append(newMessage);
+    //resetto il value dell'input
+    $('#messageInput').val('');
+    //reimposto icona microfono
+    $('.sendBar i:last-of-type').addClass('fas fa-microphone').removeClass('fa fa-paper-plane');
+    //funzione per impostare risposta dopo 1 sec
+    setTimeout(sendAnswer, 1000);
 }
