@@ -8,8 +8,6 @@ $(document).ready(function(){
         if (textMessage.length != 0) {
             sendMessage(textMessage);
         }
-        //sposta il contatto il cima nella lista contatti
-        $('.contactPreview.active').prependTo('.contactList');
     });
 
     //intercetto l'INVIO del messaggio
@@ -128,6 +126,10 @@ function sendMessage(textMessage) {
     $('#messageInput').val('');
     //reimposto icona microfono
     $('.sendBar i:last-of-type').addClass('fas fa-microphone').removeClass('fa fa-paper-plane');
+    //sposta il contatto il cima nella lista contatti
+    $('.contactPreview.active').prependTo('.contactList');
+    //sposta anche il pannello (se non lo aggiungo i messaggi che aggiungo non si muovono insieme al contactPreview ma restano nella posizione precedente)
+    $('.chat.active').prependTo('.viewMessage');
     //funzione per impostare risposta dopo 1 sec
     setTimeout(sendAnswer, 1000);
 }
