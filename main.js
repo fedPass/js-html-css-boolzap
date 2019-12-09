@@ -128,7 +128,7 @@ function sendMessage(textMessage) {
     $('.sendBar i:last-of-type').addClass('fas fa-microphone').removeClass('fa fa-paper-plane');
     //sposta il contatto il cima nella lista contatti
     $('.contactPreview.active').prependTo('.contactList');
-    //sposta anche il pannello (se non lo aggiungo i messaggi che aggiungo non si muovono insieme al contactPreview ma restano nella posizione precedente)
+    //sposta anche il pannello (si spostano insieme al contatto)
     $('.chat.active').prependTo('.viewMessage');
     //funzione per impostare risposta dopo 1 sec
     setTimeout(sendAnswer, 1000);
